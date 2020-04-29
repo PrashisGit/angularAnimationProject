@@ -22,7 +22,7 @@ export class AppComponent {
   state = 'normal';
   list = ['Milk', 'Sugar', 'Bread'];
 
-  onAdd(item){
+  onAdd(item) {
     this.list.push(item);
   }
 

@@ -5,7 +5,10 @@
       <button class="btn btn-primary" (click)="onAnimate()">Animate!</button> |
       <button class="btn btn-primary" (click)="onShrink()">Shrink</button>
       <hr>
-      <div [@divState]='state' style="width: 100px; height: 100px;">
+      <div [@divState]='state'
+      (@divState.start)= "animationStarted($event)"
+      (@divState.done)= "animationEnded($event)"
+      style="width: 100px; height: 100px;">
         <!--Animation will go here-->
         <h4>Prashis</h4>
       </div>
@@ -22,7 +25,7 @@
       <button class="btn btn-primary" (click)="onAdd(input.value)">Add Item</button>
       <hr>
       <ul class="list-group">
-        <li class="list-group-item" *ngFor="let item of list" (click)="onDelete(item)">
+        <li class="list-group-item" *ngFor="let item of list" (click)="onDelete(item)" [@list1]>
           {{item}}
         </li>
       </ul>
@@ -32,7 +35,7 @@
   <div class="row">
     <div class="col-xs-12">
       <ul class="list-group">
-        <li class="list-group-item" *ngFor="let item of list" (click)="onDelete(item)">
+        <li class="list-group-item" *ngFor="let item of list" (click)="onDelete(item)" [@list2]>
           {{item}}
         </li>
       </ul>
